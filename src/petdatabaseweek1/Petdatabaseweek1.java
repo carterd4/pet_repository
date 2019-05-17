@@ -101,9 +101,52 @@ public class Petdatabaseweek1 {
                         petCounter++;
                     }
                 }
+                break;
             }
-            case 3:break;
-            case 4:break;
+            
+            case 3:{ 
+                System.out.println("+-----------------------+");
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',"ID",'|',
+                        "NAME",'|',"AGE",'|' );
+                System.out.println("+-----------------------+");
+                for(int i=0; i<petList.size();i++){
+                    System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',i,
+                            '|',petList.get(i).getPetName(),'|',
+                            petList.get(i).getPetAge(),'|' );
+                }
+                System.out.println("+-----------------------+\n"+petList.size()+
+                        " rows in a set.\n");
+                System.out.print("\nEnter the pet ID you want to update:" );
+                int id=input.nextInt();
+                Pet newPet=petList.get(id);
+                String orig=newPet.getPetName();
+                int oldA=newPet.getPetAge();
+                System.out.print("\n Enter new name and new age:");
+                newPet.setPetName(input.next());
+                newPet.setPetAge(input.nextInt());
+                System.out.println(orig+" "+oldA+" changed to "+newPet.getPetName()+" "+newPet.getPetAge()+".\n");
+                break;}
+            case 4:{
+                System.out.println("+-----------------------+");
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',"ID",'|',
+                        "NAME",'|',"AGE",'|' );
+                System.out.println("+-----------------------+");
+                for(int i=0; i<petList.size();i++){
+                    System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',i,
+                            '|',petList.get(i).getPetName(),'|',
+                            petList.get(i).getPetAge(),'|' );
+                }
+                System.out.println("+-----------------------+\n"+petList.size()+
+                        " rows in a set.\n");
+                System.out.print("\nEnter the pet ID you want to remove:" );
+                int id=input.nextInt();
+                Pet newPet=petList.get(id);
+                String orig=newPet.getPetName();
+                int oldA=newPet.getPetAge();
+                petList.remove(petList.get(id));
+                System.out.println(orig+" "+oldA+"is removed.\n ");
+                break;
+            }
             case 5: break;
             case 6:break;
             case 7:{ System.out.println("Goodbye!"); continuity=false;break;}
