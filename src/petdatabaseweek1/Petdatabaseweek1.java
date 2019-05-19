@@ -65,9 +65,11 @@ public class Petdatabaseweek1 {
 );
         System.out.print("\nYour choice: ");
         int userChoice=input.nextInt();
+        // We use a switch as mechanism of carrier for functionality.
         switch(userChoice){
             case 1:{
                 System.out.println("+-----------------------+");
+                // Printf is used to properly align the format of the code.
                 System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',"ID",'|',
                         "NAME",'|',"AGE",'|' );
                 System.out.println("+-----------------------+");
@@ -147,8 +149,42 @@ public class Petdatabaseweek1 {
                 System.out.println(orig+" "+oldA+"is removed.\n ");
                 break;
             }
-            case 5: break;
-            case 6:break;
+            case 5:{
+                System.out.print("Enter a name to search:");
+                String searchName=input.next();
+                System.out.println("+-----------------------+");
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',"ID",'|',
+                        "NAME",'|',"AGE",'|' );
+                System.out.println("+-----------------------+");
+                for(int i=0; i<petList.size();i++){
+                    if (petList.get(i).getPetName().equalsIgnoreCase(searchName)) {                  
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',i,
+                            '|',petList.get(i).getPetName(),'|',
+                            petList.get(i).getPetAge(),'|' );
+                }
+                }
+                System.out.println("+-----------------------+\n"+petList.size()+
+                        " rows in a set.\n");
+                break;
+            }
+            case 6:{
+                System.out.print("Enter a age to search:");
+               int searchAge=input.nextInt();
+                System.out.println("+-----------------------+");
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',"ID",'|',
+                        "NAME",'|',"AGE",'|' );
+                System.out.println("+-----------------------+");
+                for(int i=0; i<petList.size();i++){
+                    if (petList.get(i).getPetAge()==(searchAge)) {                  
+                System.out.printf("%c %-2s %c %-10s %c %3s %c\n",'|',i,
+                            '|',petList.get(i).getPetName(),'|',
+                            petList.get(i).getPetAge(),'|' );
+                }
+                }
+                System.out.println("+-----------------------+\n"+petList.size()+
+                        " rows in a set.\n");
+            }
+                break;
             case 7:{ System.out.println("Goodbye!"); continuity=false;break;}
         }
             
